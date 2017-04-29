@@ -1,4 +1,4 @@
-# A particle-filter visualization in Python based on [Udacity's free A.I. for Robotics course](https://www.udacity.com/course/artificial-intelligence-for-robotics--cs373) using [Bokeh](bokeh.pydata.org)
+# A particle-filter visualization in Python using [Bokeh](bokeh.pydata.org) based on [Udacity's free A.I. for Robotics course](https://www.udacity.com/course/artificial-intelligence-for-robotics--cs373) 
 ![Animation 1](https://github.com/mithi/particle-filter-prototype/blob/master/docs/animation1.gif)
 ![Animation 2](https://github.com/mithi/particle-filter-prototype/blob/master/docs/animation2.gif)
 
