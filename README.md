@@ -54,4 +54,13 @@ ROBOT_INITIAL_POSITION = [50., 50., pi / 2.]
 - The relative importance of the weights are computed in using the product of gaussian probabilities ```line 39-45```
 [this file](https://github.com/mithi/particle-filter-prototype/blob/master/particle_filter_prototype.py)
 ... edit as you see fit.
+- Resampling is done by using the cumulative normalized weights as seen in `line 150-180` of the function
+`resample(particles, weights)` found in
+[this file](https://github.com/mithi/particle-filter-prototype/blob/master/particle_filter_prototype.py)
+... edit as you see fit.
 
+---
+# You can learn more about paricle filters from the following links:
+- https://github.com/rlabbe/Kalman-and-Bayesian-Filters-in-Python/blob/master/12-Particle-Filters.ipynb
+- https://github.com/mithi/particle-filter-prototype/blob/master/docs/Lesson3Notes.pdf
+- https://robotics.stackexchange.com/questions/479/particle-filters-how-to-do-resampling
