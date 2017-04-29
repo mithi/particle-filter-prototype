@@ -26,3 +26,14 @@ def get_random_position(world_size):
 def distance(ax, ay, bx, by):
   return sqrt((ax - bx)**2 + (ay - by)**2)
 
+def evaluate(robot, particles):
+  # EVALUATE PARTICLE FILTER'S PERFORMANCE
+    
+  rx, ry, _ = robot.get_current_position()
+
+  s = 0.
+  for particle in particles:    
+    px, py, _ = particle.get_current_position()
+    s += sqrt((px - rx) ** 2 + (py - ry) ** 2)
+  
+  return s / len(particles)
