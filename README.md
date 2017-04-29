@@ -51,25 +51,7 @@ ROBOT_INITIAL_POSITION = [50., 50., pi / 2.]
 - How the performance of the particle filter is evaluated at each time step at  ```line 58-69``` by getting the mean squared error
 [this file](https://github.com/mithi/particle-filter-prototype/blob/master/particle_filter_prototype.py)
 ... edit as you see fit.
-
-```python
-def evaluate(robot, particles):
-  rx, ry, _ = robot.get_current_position()
-  s = 0.
-  for particle in particles:    
-    px, py, _ = particle.get_current_position()
-    s += sqrt((px - rx) ** 2 + (py - ry) ** 2)
-  return s / len(particles)
-```
 - The relative importance of the weights are computed in using the product of gaussian probabilities ```line 39-45```
 [this file](https://github.com/mithi/particle-filter-prototype/blob/master/particle_filter_prototype.py)
 ... edit as you see fit.
-
-```python
-def get_weight(my_measurements, ground_measurements, noise):   
-  w = 1.
-  for my_distance, ground_distance in zip(my_measurements, ground_measurements):
-    w *= gaussian_prob(mu = my_distance, sigma = noise, x = ground_distance) 
-  return w + 1.e-300 # avoid round-off to zero
-```
 
