@@ -125,3 +125,34 @@ def move(robot, particles, turn_distance, forward_distance, sense_noise):
   
   return robot, particles, weights
 
+
+def resample(particles, weights):
+  #------------------------------------------------------------------------    
+  # calculate probability and "window" of particle getting picked in "resampling stage"
+  # IE get normalized cumulative weights
+  #------------------------------------------------------------------------
+  normalized_prob = np.array(weights) / sum(weights)
+  cumulative_prob = []
+  current = 0.
+  number_of_particles = len(particles)
+    
+  for i in range(number_of_particles):
+    cumulative_prob.append(current)
+    current += normalized_prob[i]
+  
+  #------------------------------------------------------------------------
+  # get the new set of particles by "resampling"
+  #------------------------------------------------------------------------
+  resampled_particles = []
+    
+  for i in range(number_of_particles):
+    
+    current = random()
+    j = number_of_particles - 1
+    
+    while cumulative_prob[j] > current:
+      j -= 1
+    
+    resampled_particles.append(deepcopy(particles[j]))
+    
+  return resampled_particles
