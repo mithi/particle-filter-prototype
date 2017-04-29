@@ -11,3 +11,6 @@ def get_random_position(world_size):
 
   return [x, y, heading]
 
+def distance(ax, ay, bx, by):
+  return sqrt((ax - bx)**2 + (ay - by)**2)
+
