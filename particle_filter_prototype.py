@@ -3,6 +3,24 @@ from copy import deepcopy
 from random import random, gauss
 from math import pi, sin, cos, sqrt, exp
 import numpy as np
+Landmark = namedtuple('landmark', 'x y')
+WORLD_SIZE = 100
+LANDMARKS = [Landmark(x = 0.2 * WORLD_SIZE, y = 0.2 * WORLD_SIZE), 
+             Landmark(x = 0.2 * WORLD_SIZE, y = 0.8 * WORLD_SIZE), 
+             Landmark(x = 0.8 * WORLD_SIZE, y = 0.2 * WORLD_SIZE), 
+             Landmark(x = 0.8 * WORLD_SIZE, y = 0.8 * WORLD_SIZE)]
+
+FORWARD_NOISE = 0.05
+TURN_NOISE = 0.05
+SENSE_NOISE = 5.
+
+NUMBER_OF_PARTICLES = 1000
+NUMBER_OF_STEPS = 15
+FORWARD_DISTANCE = 2.
+TURN_DISTANCE = pi / 6. 
+
+ROBOT_INITIAL_POSITION = [50., 50., pi / 2.]
+#ROBOT_INITIAL_POSITION = [random() * WORLD_SIZE, random() * WORLD_SIZE, random() * 2. * pi]
 def gaussian_prob(mu, sigma, x): 
     # calculate the probability of x for 1-dim Gaussian with mean mu and var sigma 
     return exp( -((mu - x) ** 2) / (sigma ** 2) / 2.) / sqrt( 2. * pi * (sigma ** 2))    
