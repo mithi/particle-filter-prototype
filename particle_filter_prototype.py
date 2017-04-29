@@ -156,3 +156,39 @@ def resample(particles, weights):
     resampled_particles.append(deepcopy(particles[j]))
     
   return resampled_particles
+def run():
+  #------------------------------------------------------------------------
+  # INITIALIZE ROBOT AND PARTICLES AT RANDOM POSITIONS + HEADING
+  #------------------------------------------------------------------------  
+  robot_history, particles_history = [], []
+    
+  myRobot = Particle(position = ROBOT_INITIAL_POSITION)
+  myParticles = []
+
+  for i in range(NUMBER_OF_PARTICLES):
+    p = Particle(position = get_random_position(WORLD_SIZE), noises = [FORWARD_NOISE, TURN_NOISE, SENSE_NOISE])
+    myParticles.append(p)
+
+  robot_history.append(deepcopy(myRobot))
+  particles_history.append(deepcopy(myParticles))
+
+  #------------------------------------------------------------------------
+  # PERFORM PARTICLE FILTER UPDATES
+  #------------------------------------------------------------------------
+  for i in range(NUMBER_OF_STEPS):
+  
+    ### MOVE STEP
+    myRobot, myParticles, w = move(robot = myRobot, particles = myParticles, sense_noise = SENSE_NOISE,
+                                   turn_distance = TURN_DISTANCE, forward_distance = FORWARD_DISTANCE)
+
+    robot_history.append(deepcopy(myRobot))
+    particles_history.append(deepcopy(myParticles))
+
+    ### RESAMPLE STEP
+    myParticles = resample(particles = myParticles, weights = w)
+    
+    robot_history.append(deepcopy(myRobot))
+    particles_history.append(deepcopy(myParticles))
+    
+  return robot_history, particles_history
+
