@@ -60,7 +60,7 @@ ROBOT_INITIAL_POSITION = [50., 50., pi / 2.]
 ... edit as you see fit.
 
 ---
-# You can learn more about paricle filters from the following links:
+### You can learn more about paricle filters from the following links:
 - https://github.com/rlabbe/Kalman-and-Bayesian-Filters-in-Python/blob/master/12-Particle-Filters.ipynb
 - https://github.com/mithi/particle-filter-prototype/blob/master/docs/Lesson3Notes.pdf
 - https://robotics.stackexchange.com/questions/479/particle-filters-how-to-do-resampling
