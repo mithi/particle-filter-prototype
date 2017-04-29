@@ -33,9 +33,9 @@ TURN_DISTANCE = pi / 6.
 
 ROBOT_INITIAL_POSITION = [50., 50., pi / 2.]
 ```
-- How the performance of the particle filter is evaluated at each time step at  ```line 58-69``` 
+- How the performance of the particle filter is evaluated at each time step at  ```line 58-69``` by getting the mean squared error
 [this file](https://github.com/mithi/particle-filter-prototype/blob/master/particle_filter_prototype.py)
-edit as you see fit.
+... edit as you see fit.
 
 ```python
 def evaluate(robot, particles):
@@ -50,9 +50,9 @@ def evaluate(robot, particles):
   
   return s / len(particles)
 ```
-- The relative importance of the weights are computed in ```line 39-45```
+- The relative importance of the weights are computed in using the product of gaussian probabilities ```line 39-45```
 [this file](https://github.com/mithi/particle-filter-prototype/blob/master/particle_filter_prototype.py)
-edit as you see fit.
+... edit as you see fit.
 
 ```python
 def get_weight(my_measurements, ground_measurements, noise):   
