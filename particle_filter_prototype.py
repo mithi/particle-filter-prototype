@@ -3,6 +3,11 @@ from copy import deepcopy
 from random import random, gauss
 from math import pi, sin, cos, sqrt, exp
 import numpy as np
+
+##################################################################
+# SETTINGS
+##################################################################
+
 Landmark = namedtuple('landmark', 'x y')
 WORLD_SIZE = 100
 LANDMARKS = [Landmark(x = 0.2 * WORLD_SIZE, y = 0.2 * WORLD_SIZE), 
@@ -21,6 +26,12 @@ TURN_DISTANCE = pi / 6.
 
 ROBOT_INITIAL_POSITION = [50., 50., pi / 2.]
 #ROBOT_INITIAL_POSITION = [random() * WORLD_SIZE, random() * WORLD_SIZE, random() * 2. * pi]
+
+
+##################################################################
+# HELPERS
+##################################################################
+
 def gaussian_prob(mu, sigma, x): 
     # calculate the probability of x for 1-dim Gaussian with mean mu and var sigma 
     return exp( -((mu - x) ** 2) / (sigma ** 2) / 2.) / sqrt( 2. * pi * (sigma ** 2))    
@@ -55,6 +66,12 @@ def evaluate(robot, particles):
     s += sqrt((px - rx) ** 2 + (py - ry) ** 2)
   
   return s / len(particles)
+
+
+##################################################################
+# PARTICLE
+##################################################################
+
 class Particle:
     
   def __init__(self, position = [0., 0., 0.], noises = [0., 0., 0.]): 
@@ -101,6 +118,10 @@ class Particle:
   def get_current_position(self):
     return [self.x, self.y, self.heading]
     
+
+##################################################################
+# PARTICLE FILTER UPDATE FUNCTIONS
+##################################################################
 
 def move(robot, particles, turn_distance, forward_distance, sense_noise):
   #------------------------------------------------------------------------
@@ -156,6 +177,11 @@ def resample(particles, weights):
     resampled_particles.append(deepcopy(particles[j]))
     
   return resampled_particles
+
+##################################################################
+# PARTICLE FILTER IS PERFORMED BY RUNNING THIS
+##################################################################
+
 def run():
   #------------------------------------------------------------------------
   # INITIALIZE ROBOT AND PARTICLES AT RANDOM POSITIONS + HEADING
