@@ -102,3 +102,26 @@ class Particle:
     return [self.x, self.y, self.heading]
     
 
+def move(robot, particles, turn_distance, forward_distance, sense_noise):
+  #------------------------------------------------------------------------
+  # move the robot and sense surroundings
+  #------------------------------------------------------------------------
+  robot.move(angle = turn_distance, distance = forward_distance)
+  ground_measurements = robot.sense(LANDMARKS)
+
+  #------------------------------------------------------------------------
+  # move each particle and sense surroundings
+  # get each particle's weight based 
+  # on how much the particle and the robot's measurements are alike
+  #------------------------------------------------------------------------
+  weights = []
+
+  for particle in particles:        
+    particle.move(angle = turn_distance, distance = forward_distance)
+    particle_measurements = particle.sense(LANDMARKS, with_noise = False)
+
+    w = get_weight(particle_measurements, ground_measurements, sense_noise)
+    weights.append(w)
+  
+  return robot, particles, weights
+
