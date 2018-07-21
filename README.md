@@ -1,5 +1,5 @@
 # Particle Filter Projects
-# [1. Kidnapped Vehicle](./kidnapped/vehicle/README.md)
+# [1. Kidnapped Vehicle](./kidnapped-vehicle/README.md)
 - A particle filter implementation to track a kidnapped robot.
 
 # 2. A particle-filter visualization
