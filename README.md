@@ -2,6 +2,7 @@
 # [1. Kidnapped Vehicle](./kidnapped-vehicle/README.md)
 - A particle filter implementation to track a kidnapped robot.
 - See also [Jupyter Notebooks here](https://github.com/mithi/rusty-genes/tree/rusty-genes/particlefilter)
+- [Slides of Lecture I've delivered Here](https://github.com/mithi/love-letters/blob/master/w8/Particle%20Filters%20Lecture.pdf)
 
 ![](./docs/simple-global-plot.gif)
 
