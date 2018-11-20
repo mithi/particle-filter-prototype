@@ -213,6 +213,8 @@ void ParticleFilter::updateWeights(double sensor_range, double std_landmark[], s
     * update the particle weight based on this
     **************************************************************/
     double w = INITIAL_WEIGHT;
+    double varx = std_landmark[0];
+    double vary = std_landmark[1];
 
     for (int j = 0; j < map_observations.size(); j++){
 
@@ -226,16 +228,10 @@ void ParticleFilter::updateWeights(double sensor_range, double std_landmark[], s
       double dx = ox - predicted_x;
       double dy = oy - predicted_y;
 
-      double varx = std_landmark[0];
-      double vary = std_landmark[1];
-
       double a = dx * dx / (2.0 * varx * varx);
       double b = dy * dy / (2.0 * vary * vary);
       double d = sqrt( 2.0 * M_PI * varx * vary);
       double r = exp(-(a + b)) / d;
-      // There are elements of this calculation (such as the denominator) 
-      // that don't depend on the particle, landmark, or observation. 
-      // I suggest calculating them separately outside of the particle loop and reusing these values.
       w *= r;
     }
 
