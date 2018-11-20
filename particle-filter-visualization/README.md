@@ -1,7 +1,8 @@
 # A particle-filter visualization
 - Particle Filter Visualization  in Python using [Bokeh](bokeh.pydata.org) based on [Udacity's free A.I. for Robotics course](https://www.udacity.com/course/artificial-intelligence-for-robotics--cs373)
 ![Animation 1](../docs/animation1.gif)
-![Animation 2](.,./docs/animation2.gif)
+
+![Animation 2](../docs/animation2.gif)
 
 - For visualization, if you check
 [this jupyter notebook](./visualization_only.ipynb)
@@ -24,7 +25,7 @@ x, y, heading = particles_history[t][i].get_current_position()
 # t is the time in history
 # i is the particle index
 ```
-- See [the jupyter notebook](../docs/visualization_only.ipynb)
+- See [the jupyter notebook](./visualization_only.ipynb)
 for more information
 - Tune the global variables in ```lines 11-27``` in
 [this file](./particle_filter_prototype.py)
