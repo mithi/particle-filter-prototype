@@ -11,5 +11,6 @@
 
 # Simple Particle Filter Visualization
 - Four distance sensors to determine location of a moving object
+
 ![Animation 1](./docs/animation1.gif)
 ![Animation 2](./docs/animation2.gif)
