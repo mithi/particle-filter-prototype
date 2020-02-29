@@ -1,7 +1,7 @@
 # Copy and paste the code below to your Jupyter notebook
 - You need Bokeh and Numpy to run the script below in your Jupyter Notebook 
 all the helper functions can be found in the python scripts `pfdt.py` and `pf_plot.py`
-- You can find the sample data files in `../data` directory
+- You can find the sample data files in `../kidnapped-vehicle/data` directory
 
 ```python
 from pfdt import Landmark, Control, Observation, GroundTruth
